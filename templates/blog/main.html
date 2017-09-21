@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head_title %}{{ item.slug }}{% endblock head_title %} <!-- Изменить тайтл-->
+
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-6 youtube-video">
+        <iframe src="https://www.youtube.com/embed/OJFf4pb0WHY" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="col-lg-6 temp-class">
+        <h2>Проект для игроков и тех, кому интересно</h2>
+        <p><span>Блог создан для обзора последних игровых новостей и общения между игроками, а также теми людьми, которым это просто интересно</span>/p>
+        <p><span>Данный проект будет активно развиваться в дальнейшем. Так как автор и создатель данного ресурса исповедует методологи Agile, а значит ресурс будет выглядеть так, как хотите Вы!:))</span></p>
+        <p><span>Эта версия является тестовой. Убедительная просьба сильно не критиковать:)</span></p>
+        <p><span>Со временем ресурс будет пополняться рубриками, статьями и различными фишками. Пишите мне на почту свои пожелания, а также оставляйте их в комментариях к постам.</span></p>
+        <p><span>Со временем ресурс будет пополняться рубриками, статьями и различными фишками. Пишите мне на почту свои пожелания, а также оставляйте их в комментариях к постам.</span></p>
+    </div>
+</div>
+<div class="row">
+    <h3>Новые публикации:</h3>
+    {% for item in latest %}
+        <div class="col-sm-12 col-lg-3 iblock">
+            <div class="caption">
+                <p class="item-cat-name"><span>{{ item.category.category_name }}</span></p>
+                <p class="item-title"><a href="{{ item.get_absolute_url }}">{{ item.title|truncatechars:20 }}</a></p>
+                {% if item.image %}<img src="{{ item.image.url }}" class="img-responsive my-responsive" />{% endif %}
+                <p>{{ item.content|linebreaks|truncatechars:120 }}</p>
+                <div class="other-info">
+                    <img src="{% static "image/icon_eye.jpg" %}" class="small-elements">{{ item.views }}
+                    <img src="{% static "image/like.jpg" %}" class="small-elements">{{ item.likes }}
+                    <p class="button-inline"><a href="{{ item.get_absolute_url }}">Подробнее>></a></p>
+                    <div class="small">Опубликовано:{{ item.created_date|timesince }} назад</div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+    <h3>Популярные статьи:</h3>
+    {% for item in popular %}
+        <div class="col-sm-12 col-lg-3 iblock">
+            <div class="caption">
+                <p class="item-cat-name">{{ item.category.category_name }}</p>
+                <h4><a href="{{ item.get_absolute_url }}">{{ item.title|truncatechars:20 }}</a></h4>
+                {% if item.image %}<img src="{{ item.image.url }}" class="img-responsive my-responsive" />{% else %}{% endif %}
+                <p>{{ item.content|linebreaks|truncatechars:120 }}</p>
+                <div class="other-info">
+                    <img src="{% static "image/icon_eye.jpg" %}" class="small-elements">{{ item.views }}
+                    <img src="{% static "image/like.jpg" %}" class="small-elements">{{ item.likes }}
+                    <p class="button-inline"><a href="{{ item.get_absolute_url }}">Подробнее>></a></p>
+                    <div class="small">Опубликовано:{{ item.created_date|timesince }} назад</div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block head_title %}Главная{% endblock head_title %}</title>
+{#    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />#}
+<!-- Bootstrap-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+{#    <style>{% block style %}{% endblock style %}</style>#}
+</head>
+<body background="{% static 'image/main-bg.jpg' %}">
+    <form id="csrf_getting_form" action="">{% csrf_token %}
+    </form>
+    {% include 'logg.html' %}
+    {% comment %}
+    {% endcomment %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-lg-12 category-navigation">
+                <p class="main-page"><a href="/">На главную</a></p>
+            {% for category in category_list %}
+                <p class="cat-nav-item"><a href="/category/{{ category.category_name }}">{{ category.category_name }}</a></p> |
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% include "blog/messages_display.html" %}
+
+    <div class="container">{% block content %}{% endblock content %}</div>
+    {% include 'footer.html' %}
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<script src="{% static 'js/script.js' %}"></script>
+
+<script>{% block script %}{% endblock %}</script>
+
+</body>
+</html>

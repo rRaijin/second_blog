@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block head_title %}{{ instance.title }} | {{ block.super }}{% endblock head_title %}}
+<style>{% block style %}
+
+{% endblock style %}</style>
+
+{#{% block breadcrumbs %}#}
+{#    {{ block.super }}#}
+{#    <div class="breadcrumb"><a href="{% url "posts:detail" slug=instance.slug %}">{{ instance.title }}</a></div>#}
+{#{% endblock %}#}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3 iblock">
+        <div class="caption-templ">
+            <h2>{{ instance.title }}</h2>
+            {% if instance.image %}<img src="{{ instance.image.url }}" class="img-responsive my-responsive" />{% endif %}
+            {{ instance.content|linebreaksbr }}
+            <br/>
+        {#    {% if user.is_authenticated %}#}
+            <p class="like_count">{{ instance.likes }}</p>
+            <p class="like-inject" data-add-like-url="{{ instance.get_absolute_url }}like/">{% csrf_token %}<img src="{% static "image/like.jpg" %}" width="25px" height="25px"></p>
+            |
+            <p class="dislike-inject" data-add-dislike-url="{{ instance.get_absolute_url }}dislike/">{% csrf_token %}<img src="{% static "image/dislike.jpg" %}" width="25px" height="25px"></p>
+            <p class="dislike_count">{{ instance.dislikes }}</p>
+            <p>Статья просмотрена {{ instance.views }} раз</p>
+            <div class="small">Опубликовано:{{ instance.created_date }}</div>
+        {#    {% endif %}#}
+        </div>
+    <h4>Комментарии:</h4>
+        {% for comment in comments %}
+            <div class="comments">
+                <p>{{ comment.text }}</p>
+                <div class="comment-author"><small>Комментарий оставлен:</small>{{ comment.commentator }}</div>
+            </div>
+        {% endfor %}
+
+        <form class="comment-form" method="POST" action="{{ instance.get_absolute_url }}addcomment/" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" class="btn btn-default" value="Опубликовать" />
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{#{% block breadcrumbs %}#}
+{#    {{ block.super }}#}
+{#    <div class="breadcrumb"><a href="{% url 'posts:category' category_name=category %}">{{ category }}</a></div>#}
+{#{% endblock %}#}
+
+{% block content %}
+    <div class="row">
+        <button class="create-post"><a href="create/">Добавить статью</a></button>
+        <div class="col-lg-12 iblock">
+            {% for item in post %}
+              <div class="col-sm-12 col-lg-6 iblock">
+                <div class="in-cat-wrapper">
+                    <p class="item-cat-name"><span>{{ item.category.category_name }}</span></p>
+                    <p class="item-title"><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></p>
+                    {% if item.image %}<img src="{{ item.image.url }}" class="img-responsive cat-item-img" />{% endif %}
+                    <p>{{ item.content|linebreaks|truncatechars:300 }}</p>
+                    <div class="other-info">
+                        <img src="{% static "image/icon_eye.jpg" %}" class="small-elements">{{ item.views }}
+                        <img src="{% static "image/like.jpg" %}" class="small-elements">{{ item.likes }}
+                        <p class="button-inline"><a href="{{ item.get_absolute_url }}">Подробнее>></a></p>
+                        <div class="small">Опубликовано:{{ item.created_date|timesince }} назад</div>
+                    </div>
+                </div>
+              </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="pagination">
+            <span class="step-links">
+                {% if post.has_previous %}
+                    <a href="?{{ page_request_var }}={{ post.previous_page_number }}">Предыдущая</a>
+                {% endif %}
+                <span class="current">
+                    Страница {{ post.number }} из {{ post.paginator.num_pages }}.
+                </span>
+                {% if post.has_next %}
+                    <a href="?{{ page_request_var }}={{ post.next_page_number }}">Следующая</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+{% endblock content %}

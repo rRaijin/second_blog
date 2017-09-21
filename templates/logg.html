@@ -1,0 +1,28 @@
+{% load static %}
+<div class="container">
+    <div class="row">
+        <div class="top-bar">
+            <section class="top-bar-section">
+                <img src="{% static "image/logo.jpg" %}">
+                <ul class="right">
+                    {% if user.is_active %}
+                        <li><a href="/auth/logout/">Выйти ({{ user.username }})</a></li>
+                    {% else %}
+                        <form action="/auth/login/" method="post" class="login-form">
+                            {% csrf_token %}
+                            <label for="username">Имя:</label>
+                            <input type="text" name="username" id="username" placeholder="Ваше имя">
+                            <label for="password">Пароль:</label>
+                            <input type="password" name="password" id="password" placeholder="Ваш пароль">
+                            {% if login_error %}
+                                <label class="error">{{ login_error }}</label>
+                            {% endif %}
+                            <input class="button" type="submit" value="Войти">
+                            <div class="label round secondary" id="regg"><a href="/auth/register/">Регистрация</a></div>
+                        </form>
+                    {% endif %}
+                </ul>
+            </section>
+        </div>
+    </div>
+</div>

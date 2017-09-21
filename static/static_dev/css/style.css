@@ -1,0 +1,345 @@
+/*-----------GENERAL-----------*/
+h2 {
+    color: #7cd6da;
+}
+h3 {
+    color: #e03316;
+}
+h4 {
+    color: snow;
+    margin:0.2em 0;
+    padding:0;
+}
+h4 a {
+    margin-left: .1em;
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+    color: #4166a9;
+    text-decoration: none;
+}
+h4 a:hover {
+    color: red;
+}
+.pagination {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
+/*-----------top-block styles--------*/
+.top-bar {
+    /*background-color: #bdded3;*/
+    position: relative;
+}
+.top-bar-section {
+    list-style: none;
+    width: 100%;
+    height: 40px;
+}
+.right {
+    display: inline-block;
+    height: 100%;
+    float:right;
+    margin: 0 2% 0 0;
+    padding: .4em 0 0 0;
+    clear: both;
+    list-style: none;
+    vertical-align: middle;
+}
+.right li a {
+    color: #d8d9e6;
+    text-decoration: none;
+    font-family: Roboto;
+    font-size: 1.2em;
+}
+.right li a:hover {
+    color: #ffffff;
+}
+.login-form input {
+    width: 10em;
+    border-radius: .4em;
+}
+.login-form label {
+    color: #f36d85;
+}
+#regg a{
+    color: #f7fbff;
+}
+.login-form .button {
+    width: 5em;
+}
+/*------------category-navigation-------------*/
+.category-navigation {
+    margin-top: 1em;
+    border-top: .1em groove black;
+}
+.main-page {
+    margin: 0;
+    padding: .5em 1em;
+    display: inline-block;
+    /*background-color: #bdded3;*/
+    border-radius: 5px;
+}
+.main-page a {
+    color: #ff0427;
+    font-size: 1.2em;
+    font-weight: bolder;
+    text-decoration: blink;
+}
+.main-page a:hover {
+    color: black;
+}
+.cat-nav-item {
+    display: inline-block;
+    margin:0;
+    padding: .2em .5em;
+    font-size: 1.3em;
+    font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+    font-weight: bold;
+}
+.cat-nav-item a {
+    text-decoration: none;
+    color: #f7baba;
+}
+.cat-nav-item a:hover {
+    color:red;
+}
+/*-------------------main-page styles----------------------*/
+.youtube-video {
+    overflow: hidden;
+    padding: .2em;
+}
+.youtube-video iframe {
+    width: 100%;
+    min-height: 322px;
+}
+.temp-class {
+    max-height: 326px;
+    overflow-y: scroll;
+    padding: .2em;
+}
+.temp-class span {
+    color: snow;
+}
+
+.iblock {
+    padding: .3em .1em;
+}
+.caption {
+    position: relative;
+    margin: 0;
+    padding: 1em;
+    height: 420px;
+    background-color: #deefea;
+    /*opacity: .5;*/
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.caption-templ {
+    position: relative;
+    margin: 0;
+    padding: 1em;
+    background-color: #deefea;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.caption .small {
+    display: inline-block;
+    width: 100%;
+}
+.item-cat-name {
+    margin:0;
+    padding:0;
+    font-size: .8em;
+    color: #5b80b2;
+}
+.item-cat-name span {
+    display: inherit;
+    text-align: right;
+}
+.item-title {
+    margin: 0;
+    padding: 0;
+}
+.item-title a{
+    font-size: 1.5em;
+    font-weight: inherit;
+    font-family: 'Lobster', cursive;
+    color: #0ebb0b;
+    text-decoration: none;
+}
+.item-title a:hover {
+    color: #8bbd8b;
+}
+
+.my-responsive {
+    height: 200px;
+    width: 100%;
+}
+.other-info {
+    bottom: 0;
+}
+.small-elements {
+    width:15px;
+    height:15px;
+    margin-right: .2em;
+    margin-left: .5em;
+}
+
+.button-inline {
+    margin-left: 5.5em;
+    font-size: 1em;
+    font-weight: bold;
+    display: inline-block;
+}
+.button-inline a {
+    text-decoration: none;
+    color: #bb0202;
+}
+.button-inline a:hover {
+    color: rebeccapurple;
+}
+/*---------cat-item-block styles---------*/
+.create-post {
+    margin: .5em 0 0 0;
+    padding: .12em;
+    font-size: 1.5em;
+    border-radius: .35em;
+}
+.create-post a {
+    text-decoration: none;
+    color: #e4086e;
+}
+.create-post a:hover {
+    color: green;
+}
+.in-cat-wrapper {
+    padding: 1em;
+    background-color: #deefea;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.cat-block {
+    margin:0;
+    padding: 1em 0.5em;
+}
+.cat-item-img {
+    padding-top: 0.2em;
+    height:300px;
+    width: 100%;
+}
+/*------------item styles------------*/
+.single {
+    background-color: #cbbfe6;
+}
+.like-inject, .dislike-inject, .like_count, .dislike_count {
+    display: inline-block;
+    margin: 0.8em 0.2em;
+}
+.like-inject img, .dislike-inject img {
+    width: 15px;
+    height: 15px;
+}
+.comments {
+    position: relative;
+    margin: .4em .4em .4em 3em;
+    padding: .2em;
+    border: .05em white solid;
+    border-radius: .4em;
+    background-color: white;
+}
+.comment-author {
+    margin:0;
+    padding: 0;
+    position: absolute;
+    right:0;
+    bottom: 0;
+    font-size: 0.8em;
+    color: red;
+}
+.comment-author  small {
+    padding-right: .9em;
+    font-size: .8em;
+    font-weight: bold;
+    font-family: Roboto;
+    color: black;
+}
+.comment-form {
+    position: relative;
+    margin-bottom: 5em;
+}
+.comment-form label {
+    position: absolute;
+}
+.comment-form textarea {
+    margin-top: 1.5em;
+    width: 100%;
+    border-radius: 1em;
+}
+/*--------------------------------------*/
+h1 {
+    color: #ff3344;
+}
+h1 a {
+    font-size:40px;
+    color: red;
+}
+.page-header {
+    background-color: #ff9400;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+.content {
+    margin-left: 40px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Lobster', cursive;
+}
+
+.date {
+    float: right;
+    color: #828282;
+}
+
+.save {
+    float: right;
+}
+
+.post-form textarea, .post-form input {
+    width: 100%;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
+
+.post {
+    margin-bottom: 70px;
+}
+
+.post h1 a, .post h1 a:visited {
+    color: #000000;
+}
+/*---------FOOTER--------*/
+footer {
+    margin-top: 1em;
+    height: 40px;
+    background-color: black;
+}
+footer p {
+    color: white;
+    font-size: 2em;
+    font-family: 'Lobster', cursive;
+    font-weight: bold;
+}
